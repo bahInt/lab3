@@ -5,5 +5,6 @@ public class SparkMain {
 
         JavaRDD<String> airportsFile = sc.textFile();
         JavaRDD<String> flightsFile = sc.textFile();
+        
     }
 }
