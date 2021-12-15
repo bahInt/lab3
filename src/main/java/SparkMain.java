@@ -1,3 +1,5 @@
 public class SparkMain {
-    public static void main
+    public static void main() {
+
+    }
 }
