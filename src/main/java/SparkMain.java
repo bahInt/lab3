@@ -4,6 +4,6 @@ public class SparkMain {
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         JavaRDD<String> airportsFile = sc.textFile();
-        JavaRDD<String> airportsFile = sc.textFile();
+        JavaRDD<String> flightsFile = sc.textFile();
     }
 }
