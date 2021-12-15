@@ -3,6 +3,7 @@ public class SparkMain {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        JavaRDD<String> airports
+        JavaRDD<String> airportsFile = sc.textFile();
+        JavaRDD<String> airportsFile = sc.textFile();
     }
 }
