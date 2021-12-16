@@ -1,6 +1,7 @@
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import scala.Tuple2;
 
 public class SparkMain {
     public static void main() {
@@ -11,7 +12,7 @@ public class SparkMain {
         JavaRDD<String> flightsFile = sc.textFile("664600583_T_ONTIME_sample.csv");
 
         Map<Integer, String> airportsMapToPair = airportsFile.mapToPair(
-                line -> ne
+                line -> new Tuple2<>()
         )
 
     }
