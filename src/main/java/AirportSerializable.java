@@ -30,7 +30,9 @@ public class AirportSerializable implements Serializable {
     public void setDelay(float delay){
         this.delay = delay;
     }
-    public float getDelay(){}
+    public float getDelay(){
+        return delay;
+    }
 
     public void setFlightCancellation(boolean flightCancellation){
         this.flightCancellation = flightCancellation;
