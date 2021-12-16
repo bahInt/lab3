@@ -53,7 +53,10 @@ public class SparkMain {
             float delay = getDelay(flightsDataTable[DELAY_COLUMN]);
             boolean flightCancellation= flightsDataTable[CANCELLED_COLUMN].isEmpty();
 
-            return new Tuple2<>(departureAirportID, destinationAirportID);
+            return new Tuple2<>(
+                    new Tuple2<>(departureAirportID, destinationAirportID),
+                    new AirportSerializable(departureAirportID, destinationAirportID, delay, flightCancellation)
+            );
         });
     }
 }
