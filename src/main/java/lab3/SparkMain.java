@@ -1,3 +1,5 @@
+package lab3;
+
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -23,7 +25,7 @@ public class SparkMain {
         JavaRDD<String> flightsFile = sc.textFile("664600583_T_ONTIME_sample.csv");
 
         JavaPairRDD<Integer, String> airportsPair = makeAirportsPair(airportsFile);
-        JavaPairRDD<Integer, Integer> flightsPair = makeFlightsPair(flightsFile);
+        JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair = makeFlightsPair(flightsFile);
 
     }
 
@@ -45,7 +47,7 @@ public class SparkMain {
         }
     }
 
-    private static Tuple2<Tuple2<Integer, Integer>, AirportSerializable> makeFlightsPair(JavaRDD<String> flightsFile) {
+    private static JavaRDD<Tuple2<Integer, Integer>, AirportSerializable> makeFlightsPair(JavaRDD<String> flightsFile) {
         return flightsFile.filter(line -> !line.contains(FLIGHTS_DESCRIPTION_LINE)).mapToPair(line -> {
             String[] flightsDataTable = line.split(COMMA);
             int departureAirportID = Integer.parseInt(flightsDataTable[ORIGIN_AIRPORT_ID_COLUMN]);
@@ -53,7 +55,7 @@ public class SparkMain {
             float delay = getDelay(flightsDataTable[DELAY_COLUMN]);
             boolean flightCancellation= flightsDataTable[CANCELLED_COLUMN].isEmpty();
 
-            return new Tuple2<>(
+            return new JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable>(
                     new Tuple2<>(departureAirportID, destinationAirportID),
                     new AirportSerializable(departureAirportID, destinationAirportID, delay, flightCancellation)
             );
