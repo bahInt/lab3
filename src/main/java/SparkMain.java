@@ -36,7 +36,12 @@ public class SparkMain {
     }
 }
 
-
+    private static float getDelay(String line) {
+        try {
+            
+        }
+        catch (NumberFormatException ignored) {}
+    }
 
     private static JavaPairRDD<Integer, Integer> makeFlightsPair(JavaRDD<String> flightsFile) {
         return flightsFile.filter(line -> !line.contains(FLIGHTS_DESCRIPTION_LINE)).mapToPair(line -> {
