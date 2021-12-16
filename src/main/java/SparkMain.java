@@ -18,7 +18,11 @@ public class SparkMain {
     }
 
     private static JavaPairRDD<Integer, String> makeAirportsPair(JavaRDD<String> airportsFile) {
-        return airportsFile.filter(line -> !line.contains("Code")).mapToPair();
+        return airportsFile.filter(line -> !line.contains("Code")).mapToPair( line -> {
+            line = line.replace("\"", "");
+            
+                }
+        );
     }
 }
 
