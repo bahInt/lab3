@@ -9,7 +9,7 @@ public class SparkMain {
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         if(args.length != 3){
-            System.err.println("Usage:");
+            System.err.println("Usage: App <input path> <output path>");
             System.exit(-1);
         }
         JavaRDD<String> airportsFile = sc.textFile("L_AIRPORT_ID.csv");
