@@ -13,15 +13,15 @@ public class AirportSerializable implements Serializable {
         this.flightCancellation = flightCancellation;
     }
 
-    public int setDepartureAirportID(){}
+    public int setDepartureAirportID(int departureAirportID){}
     public int getDepartureAirportID(){}
 
-    public int setDestinationAirportID(){}
+    public int setDestinationAirportID(int destinationAirportID){}
     public int getDestinationAirportID(){}
 
-    public float setDelay(){}
+    public float setDelay(float delay){}
     public float getDelay(){}
 
-    public boolean setFlightCancellation(){}
+    public boolean setFlightCancellation(boolean flightCancellation){}
     public boolean getFlightCancellation(){}
 }
