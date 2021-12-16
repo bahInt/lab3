@@ -22,3 +22,4 @@ public class SparkMain {
     }
 }
 
+    private static JavaPairRDD<Integer, String> makeAirportsPair(JavaRDD<String> airportsFile) {}
