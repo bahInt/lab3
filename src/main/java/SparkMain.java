@@ -18,7 +18,7 @@ public class SparkMain {
     }
 
     private static JavaPairRDD<Integer, String> makeAirportsPair(JavaRDD<String> airportsFile) {
-        return airportsFile.filter(line ->)
+        return airportsFile.filter(line -> line.contains())
     }
 }
 
