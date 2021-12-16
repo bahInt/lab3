@@ -21,7 +21,7 @@ public class SparkMain {
         return airportsFile.filter(line -> !line.contains("Code")).mapToPair( line -> {
             line = line.replace("\"", "");
             int commaIndex = line.indexOf(",");
-            
+            Integer airportID = Integer.valueOf();
                 }
         );
     }
