@@ -3,6 +3,8 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
+import java.util.Map;
+
 public class SparkMain {
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("lab3");
