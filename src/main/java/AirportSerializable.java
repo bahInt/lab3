@@ -4,7 +4,7 @@ public class AirportSerializable implements Serializable {
     private int departureAirportID;
     private int destinationAirportID;
     private float delay;
-    private boolean isFlightCancelled;
+    private boolean flightCancelled;
 
     public AirportSerializable(int departureAirportID, int destinationAirportID, float delay, boolean isFlightCancelled) {
         this.departureAirportID = departureAirportID;
