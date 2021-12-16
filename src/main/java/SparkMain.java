@@ -52,6 +52,8 @@ public class SparkMain {
             int destinationAirportID = Integer.parseInt(flightsDataTable[DEST_AIRPORT_ID_COLUMN]);
             float delay = getDelay(flightsDataTable[DELAY_COLUMN]);
             boolean isFlightCancelled = flightsDataTable[CANCELLED_COLUMN].isEmpty();
+
+            return new Tuple2<>(departureAirportID, destinationAirportID);
         });
     }
 }
