@@ -25,11 +25,12 @@ public class SparkMain {
             Integer airportID = Integer.valueOf(line.substring(commaIndex));
             String airportName = line.substring(commaIndex + 1);
             return new Tuple2<>(airportID, airportName);
-                }
-        );
+        });
     }
 }
 
     private static JavaPairRDD<Integer, Integer> makeFlightsPair(JavaRDD<String> flightsFile) {
-        return flightsFile.mapToPair(line -> );
+        return flightsFile.mapToPair(line -> {
+            
+        });
     }
