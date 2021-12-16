@@ -10,6 +10,7 @@ public class SparkMain {
     private static final String QUOTE = "\"";
     private static final String AIRPORT_DESCRIPTION_LINE = "Code";
     private static final String FLIGHTS_DESCRIPTION_LINE = "YEAR";
+    private static final int  ORIGIN_AIRPORT_ID = 11;
 
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("lab3");
@@ -37,6 +38,7 @@ public class SparkMain {
     private static JavaPairRDD<Integer, Integer> makeFlightsPair(JavaRDD<String> flightsFile) {
         return flightsFile.filter(line -> !line.contains(FLIGHTS_DESCRIPTION_LINE)).mapToPair(line -> {
             String[] flightsDataTable = line.split(COMMA);
-            departureAirportID = Integer.parseInt(flightsDataTable[])
+            int departureAirportID = Integer.parseInt(flightsDataTable[ORIGIN_AIRPORT_ID]);
+            int destinationAirportID = Integer.parseInt(flightsDataTable[ORIGIN_AIRPORT_ID]);
         });
     }
