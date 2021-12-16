@@ -17,5 +17,6 @@ public class AirportSerializable implements Serializable {
     public int get(){};
     public int set(){};
     public int get(){};
-    public  set(){};
+    public float set(){};
+    public float get(){};
 }
