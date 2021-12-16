@@ -10,5 +10,6 @@ public class AirportSerializable implements Serializable {
         this.departureAirportID = departureAirportID;
         this.destinationAirportID = destinationAirportID;
         this.delay = delay;
+        this.isFlightCancelled = isFlightCancelled;
     }
 }
