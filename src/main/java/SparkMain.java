@@ -12,7 +12,7 @@ public class SparkMain {
     private static final String FLIGHTS_DESCRIPTION_LINE = "YEAR";
     private static final int ORIGIN_AIRPORT_ID_COLUMN = 11;
     private static final int DEST_AIRPORT_ID_COLUMN = 14;
-    
+    private static final int DEST_AIRPORT_ID_COLUMN = 14;
 
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("lab3");
