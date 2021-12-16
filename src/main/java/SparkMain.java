@@ -14,6 +14,7 @@ public class SparkMain {
         JavaRDD<String> flightsFile = sc.textFile("664600583_T_ONTIME_sample.csv");
 
         JavaPairRDD<Integer, String> airportsPair = makeAirportsPair(airportsFile);
+        
 
     }
 
@@ -21,7 +22,9 @@ public class SparkMain {
         return airportsFile.filter(line -> !line.contains("Code")).mapToPair( line -> {
             line = line.replace("\"", "");
             int commaIndex = line.indexOf(",");
-            Integer airportID = Integer.valueOf();
+            Integer airportID = Integer.valueOf(line.substring(commaIndex));
+            String airportName = line.substring(commaIndex + 1);
+            return new Tuple2<>(airportID, airportName);
                 }
         );
     }
