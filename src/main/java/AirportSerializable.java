@@ -13,5 +13,6 @@ public class AirportSerializable implements Serializable {
         this.isFlightCancelled = isFlightCancelled;
     }
 
-    
+    public int set(){};
+    public int get(){};
 }
