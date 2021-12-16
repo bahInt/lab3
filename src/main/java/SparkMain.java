@@ -41,6 +41,6 @@ public class SparkMain {
             String[] flightsDataTable = line.split(COMMA);
             int departureAirportID = Integer.parseInt(flightsDataTable[ORIGIN_AIRPORT_ID]);
             int destinationAirportID = Integer.parseInt(flightsDataTable[DEST_AIRPORT_ID]);
-            
+            float delay = 
         });
     }
