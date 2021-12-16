@@ -9,7 +9,7 @@ public class SparkMain {
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
-        
+
         JavaRDD<String> airportsFile = sc.textFile("L_AIRPORT_ID.csv");
         JavaRDD<String> flightsFile = sc.textFile("664600583_T_ONTIME_sample.csv");
 
@@ -18,7 +18,7 @@ public class SparkMain {
     }
 
     private static JavaPairRDD<Integer, String> makeAirportsPair(JavaRDD<String> airportsFile) {
-        return;
+        return airportsFile.filter(line ->)
     }
 }
 
