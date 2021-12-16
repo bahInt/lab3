@@ -8,7 +8,7 @@ public class SparkMain {
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         JavaRDD<String> airportsFile = sc.textFile("L_AIRPORT_ID.csv");
-        JavaRDD<String> flightsFile = sc.textFile();
+        JavaRDD<String> flightsFile = sc.textFile("664600583_T_ONTIME_sample.csv");
 
 
 
