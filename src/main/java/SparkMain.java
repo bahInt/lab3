@@ -31,6 +31,6 @@ public class SparkMain {
 
     private static JavaPairRDD<Integer, Integer> makeFlightsPair(JavaRDD<String> flightsFile) {
         return flightsFile.mapToPair(line -> {
-            
+            String[] flightsDataTable = line.split();
         });
     }
