@@ -38,9 +38,11 @@ public class SparkMain {
 
     private static float getDelay(String line) {
         try {
-            
+            return Float.parseFloat(line);
         }
-        catch (NumberFormatException ignored) {}
+        catch (NumberFormatException ignored) {
+            return 0.f;
+        }
     }
 
     private static JavaPairRDD<Integer, Integer> makeFlightsPair(JavaRDD<String> flightsFile) {
