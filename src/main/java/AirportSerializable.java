@@ -12,4 +12,6 @@ public class AirportSerializable implements Serializable {
         this.delay = delay;
         this.isFlightCancelled = isFlightCancelled;
     }
+
+    
 }
