@@ -23,7 +23,9 @@ public class AirportSerializable implements Serializable {
     public void setDestinationAirportID(int destinationAirportID){
         this.destinationAirportID = destinationAirportID;
     }
-    public int getDestinationAirportID(){}
+    public int getDestinationAirportID(){
+        return destinationAirportID;
+    }
 
     public void setDelay(float delay){
         this.delay = delay;
