@@ -1,2 +1,2 @@
-public class AirportSerializable {
+public class AirportSerializable implements Serializable{
 }
