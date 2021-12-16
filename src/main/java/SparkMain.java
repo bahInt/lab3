@@ -6,6 +6,9 @@ import scala.Tuple2;
 
 
 public class SparkMain {
+    private static final String COMMA = ",";
+
+
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
@@ -21,7 +24,7 @@ public class SparkMain {
     private static JavaPairRDD<Integer, String> makeAirportsPair(JavaRDD<String> airportsFile) {
         return airportsFile.filter(line -> !line.contains("Code")).mapToPair( line -> {
             line = line.replace("\"", "");
-            int commaIndex = line.indexOf(",");
+            int commaIndex = line.indexOf(COMMA);
             Integer airportID = Integer.valueOf(line.substring(commaIndex));
             String airportName = line.substring(commaIndex + 1);
             return new Tuple2<>(airportID, airportName);
