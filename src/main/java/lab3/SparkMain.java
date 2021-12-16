@@ -25,7 +25,7 @@ public class SparkMain {
         JavaRDD<String> flightsFile = sc.textFile("664600583_T_ONTIME_sample.csv");
 
         JavaPairRDD<Integer, String> airportsPair = makeAirportsPair(airportsFile);
-        JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair = flightsFile.filter(line -> !line.contains(FLIGHTS_DESCRIPTION_LINE)).mapToPair();
+        JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair = flightsFile.filter(line -> !line.contains(FLIGHTS_DESCRIPTION_LINE)).mapToPair(SparkMain::makeFlightsPair);
 
     }
 
@@ -59,6 +59,5 @@ public class SparkMain {
                     new Tuple2<>(departureAirportID, destinationAirportID),
                     new AirportSerializable(departureAirportID, destinationAirportID, delay, flightCancellation)
             );
-        );
     }
 }
