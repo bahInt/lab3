@@ -14,7 +14,7 @@ public class SparkMain {
         JavaRDD<String> flightsFile = sc.textFile("664600583_T_ONTIME_sample.csv");
 
         JavaPairRDD<Integer, String> airportsPair = makeAirportsPair(airportsFile);
-        JavaPairRDD<Integer, Integer> flightsPair = flightsFile.mapToPair();
+        JavaPairRDD<Integer, Integer> flightsPair = 
 
     }
 
