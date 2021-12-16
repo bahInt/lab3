@@ -45,7 +45,7 @@ public class SparkMain {
         }
     }
 
-    private static JavaPairRDD<Integer, Integer> makeFlightsPair(JavaRDD<String> flightsFile) {
+    private static Tuple2<Tuple2<Integer, Integer>, AirportSerializable> makeFlightsPair(JavaRDD<String> flightsFile) {
         return flightsFile.filter(line -> !line.contains(FLIGHTS_DESCRIPTION_LINE)).mapToPair(line -> {
             String[] flightsDataTable = line.split(COMMA);
             int departureAirportID = Integer.parseInt(flightsDataTable[ORIGIN_AIRPORT_ID_COLUMN]);
