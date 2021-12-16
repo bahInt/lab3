@@ -12,7 +12,7 @@ public class SparkMain {
         JavaRDD<String> flightsFile = sc.textFile("664600583_T_ONTIME_sample.csv");
 
         Map<Integer, String> airportsMapToPair = airportsFile.mapToPair(
-                line -> new Tuple2<>()
+                line -> new Tuple2<>(airportID, airportName);
         )
 
     }
