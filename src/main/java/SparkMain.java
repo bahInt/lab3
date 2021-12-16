@@ -10,7 +10,9 @@ public class SparkMain {
         JavaRDD<String> airportsFile = sc.textFile("L_AIRPORT_ID.csv");
         JavaRDD<String> flightsFile = sc.textFile("664600583_T_ONTIME_sample.csv");
 
-        Map<Integer, String> airportsMapToPair = airportsFile.mapToPair(  )
+        Map<Integer, String> airportsMapToPair = airportsFile.mapToPair(
+                line -> ne
+        )
 
     }
 }
