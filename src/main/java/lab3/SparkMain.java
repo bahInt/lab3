@@ -30,7 +30,7 @@ public class SparkMain {
         JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair = flightsFile.filter(line -> !line.contains(FLIGHTS_DESCRIPTION_LINE)).mapToPair(SparkMain::makeFlightsPair);
         JavaPairRDD<Tuple2<Integer, Integer>, FlightSerializable> reducedFlightsData = reduceFlightsPair(flightsPair);
         Map<Integer, String> airportsPair = makeAirportsPair(airportsFile).collectAsMap();
-        final Broadcast<Map<String, String>> airportsBroadcasted = sc.broadcast()
+        final Broadcast<Map<String, String>> airportsBroadcasted = sc.broadcast();
     }
 
 
