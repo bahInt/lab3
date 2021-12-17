@@ -68,7 +68,7 @@ public class SparkMain {
         return flightsPair.combineByKey(flight ->
                 new FlightsSerializable(
                         flight.getDelay(),
-                        
+
                 ),
                 FlightSerializable::addValue,
                 FlightSerializable::add);

@@ -36,6 +36,10 @@ public class AirportSerializable implements Serializable {
         return delay;
     }
 
+    public boolean checkDelay(){
+        if(delay > 0){}
+        return
+    }
     public void setFlightCancellation(boolean flightCancellation){
         this.flightCancellation = flightCancellation;
     }
