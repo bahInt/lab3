@@ -4,6 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
 
 import java.util.Map;
@@ -29,7 +30,7 @@ public class SparkMain {
         JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair = flightsFile.filter(line -> !line.contains(FLIGHTS_DESCRIPTION_LINE)).mapToPair(SparkMain::makeFlightsPair);
         JavaPairRDD<Tuple2<Integer, Integer>, FlightSerializable> reducedFlightsData = reduceFlightsPair(flightsPair);
         Map<Integer, String> airportsPair = makeAirportsPair(airportsFile).collectAsMap();
-        
+        final Broadcast
     }
 
 
