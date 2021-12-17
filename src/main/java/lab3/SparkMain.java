@@ -96,7 +96,8 @@ public class SparkMain {
 
             return  "\nDeparture Airport: " + departureAirport
                     + "\nDestination Airport: " + destinationAirport
-                    + ""
+                    + "Maximal Delay: " + maxDelayTime
+                    +
             }
         )
     }
