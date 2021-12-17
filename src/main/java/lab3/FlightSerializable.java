@@ -16,6 +16,6 @@ public class FlightSerializable implements Serializable {
     }
 
     public void setMaxDelayTime(float maxDelayTime){
-
+        this.maxDelayTime = maxDelayTime;
     }
 }
