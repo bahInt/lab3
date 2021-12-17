@@ -49,6 +49,6 @@ public class FlightSerializable implements Serializable {
 
     public static FlightSerializable addValue(FlightSerializable flight, AirportSerializable valueFlight) {
         int amountOfFlights = flight.getAmountOfFlights() + 1;
-        
+        float 
     }
 }
