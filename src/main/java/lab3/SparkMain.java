@@ -34,9 +34,7 @@ public class SparkMain {
         JavaRDD<String> resultStatistics = mapStatistics(reducedFlightsData, airportsBroadcasted);
         resultStatistics.saveAsTextFile("hdfs://localhost:9000/user/igor/outputLab3");
     }
-
-
-
+    
     private static JavaPairRDD<Integer, String> makeAirportsPair(JavaRDD<String> airportsFile) {
         return airportsFile.filter(line -> !line.contains(AIRPORT_DESCRIPTION_LINE)).mapToPair(line -> {
             line = line.replace(QUOTE, "");
