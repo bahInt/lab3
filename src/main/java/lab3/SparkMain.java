@@ -26,7 +26,7 @@ public class SparkMain {
 
         JavaPairRDD<Integer, String> airportsPair = makeAirportsPair(airportsFile);
         JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair = flightsFile.filter(line -> !line.contains(FLIGHTS_DESCRIPTION_LINE)).mapToPair(SparkMain::makeFlightsPair);
-        JavaPairRDD<Tuple2<Integer, Integer>> reducedFlightsData = reduceFlightsPair(flightsPair);
+        JavaPairRDD<Tuple2<Integer, Integer>, FlightSerializable> reducedFlightsData = reduceFlightsPair(flightsPair);
 
     }
 
@@ -64,7 +64,13 @@ public class SparkMain {
             );
     }
 
-    private static JavaPairRDD<Tuple2<Integer, Integer>> reduceFlightsPair(JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair){
-        return flightsPair.combineByKey(flight -> new FlightsSerializable())
+    private static JavaPairRDD<Tuple2<Integer, Integer>, FlightSerializable> reduceFlightsPair(JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair){
+        return flightsPair.combineByKey(flight ->
+                new FlightsSerializable(
+                        flight.getDelay(),
+                        
+                ),
+                FlightSerializable::addValue,
+                FlightSerializable::add);
     }
 }
