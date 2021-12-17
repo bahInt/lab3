@@ -38,4 +38,8 @@ public class FlightSerializable implements Serializable {
     public float getCancelledFlights() {
         return cancelledFlights;
     }
+
+    public void setAmountOfFlights(int amountOfFlights) {
+        this.amountOfFlights = amountOfFlights;
+    }
 }
