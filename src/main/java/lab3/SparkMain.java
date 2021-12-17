@@ -6,6 +6,8 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
+import java.util.Map;
+
 
 public class SparkMain {
     private static final String COMMA = ",";
@@ -26,7 +28,7 @@ public class SparkMain {
         JavaRDD<String> flightsFile = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair = flightsFile.filter(line -> !line.contains(FLIGHTS_DESCRIPTION_LINE)).mapToPair(SparkMain::makeFlightsPair);
         JavaPairRDD<Tuple2<Integer, Integer>, FlightSerializable> reducedFlightsData = reduceFlightsPair(flightsPair);
-        JavaPairRDD<Integer, String> airportsPair = makeAirportsPair(airportsFile).collectAsMap();
+        Map<Integer, String> airportsPair = makeAirportsPair(airportsFile).collectAsMap();
     }
 
 
