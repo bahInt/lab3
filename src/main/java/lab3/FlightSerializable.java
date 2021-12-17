@@ -73,6 +73,6 @@ public class FlightSerializable implements Serializable {
         float addedDelayedFlights;
         float addedCancelledFlights;
         int addedAmountOfFlights;
-        return new FlightSerializable(addedMaxDelayTime, addedDelayedFlights)
+        return new FlightSerializable(addedMaxDelayTime, addedDelayedFlights, addedCancelledFlights)
     }
 }
