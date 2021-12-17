@@ -50,6 +50,16 @@ public class FlightSerializable implements Serializable {
     public static FlightSerializable addValue(FlightSerializable flight, AirportSerializable valueFlight) {
         int amountOfFlights = flight.getAmountOfFlights() + 1;
         float flightDelay = Math.max(flight.getMaxDelayTime(), valueFlight.getDelay());
-        float delayedFlights = (valueFlight.getFlightCancellation())
+        float delayedFlights;
+        if(valueFlight.getFlightCancellation() || valueFlight.getDelay() > 0) {
+            delayedFlights = flight.getDelayedFlights() + 1;
+        } else {
+            delayedFlights = flight.getDelayedFlights();
+        }
+
+        float cancelledFlights;
+        if(valueFlight.getFlightCancellation()) {
+            cancelledFlights = flight.getCancelledFlights() + 1
+        }
     }
 }
