@@ -97,8 +97,8 @@ public class SparkMain {
             return  "\nDeparture Airport: " + departureAirport
                     + "\nDestination Airport: " + destinationAirport
                     + "Maximal Delay: " + maxDelayTime
-                    +
+                    + "Delayed and Cancelled Flight Percentage: " + delayedAndCancelledPercentage;
             }
-        )
+        );
     }
 }
