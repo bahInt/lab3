@@ -34,12 +34,12 @@ public class SparkMain {
         JavaRDD<String> resultStatistics = mapStatistics(reducedFlightsData, airportsBroadcasted);
         resultStatistics.saveAsTextFile("hdfs://localhost:9000/user/igor/outputLab3");
     }
-    
+
     private static JavaPairRDD<Integer, String> makeAirportsPair(JavaRDD<String> airportsFile) {
         return airportsFile.filter(line -> !line.contains(AIRPORT_DESCRIPTION_LINE)).mapToPair(line -> {
             line = line.replace(QUOTE, "");
             int commaIndex = line.indexOf(COMMA);
-            Integer airportID = Integer.valueOf(line.substring(commaIndex));
+            Integer airportID = Integer.valueOf(line.substring(0, commaIndex));
             String airportName = line.substring(commaIndex + 1);
             return new Tuple2<>(airportID, airportName);
         });
@@ -95,8 +95,8 @@ public class SparkMain {
 
             return  "\nDeparture Airport: " + departureAirport
                     + "\nDestination Airport: " + destinationAirport
-                    + "Maximal Delay: " + maxDelayTime
-                    + "Delayed and Cancelled Flight Percentage: " + delayedAndCancelledPercentage;
+                    + "\nMaximal Delay: " + maxDelayTime
+                    + "\nDelayed and Cancelled Flight Percentage: " + delayedAndCancelledPercentage;
             }
         );
     }

@@ -55,9 +55,11 @@ public class AirportSerializable implements Serializable {
         }
         return resultOfCheck;
     }
+
     public void setFlightCancellation(boolean flightCancellation){
         this.flightCancellation = flightCancellation;
     }
+    
     public boolean getFlightCancellation(){
         return flightCancellation;
     }
