@@ -88,7 +88,7 @@ public class SparkMain {
             Tuple2<Integer, Integer> key = flight._1();
             String departureAirport = departureDestinationAirports.get(key._1);
             String destinationAirport = departureDestinationAirports.get(key._2);
-            float maxDelayTime;
+            float maxDelayTime = flight._2.getMaxDelayTime();
             float delayedFlights;
             float cancelledFlights;
             int amountOfFlights;
