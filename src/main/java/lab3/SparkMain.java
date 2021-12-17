@@ -29,8 +29,8 @@ public class SparkMain {
         JavaRDD<String> flightsFile = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair = flightsFile.filter(line -> !line.contains(FLIGHTS_DESCRIPTION_LINE)).mapToPair(SparkMain::makeFlightsPair);
         JavaPairRDD<Tuple2<Integer, Integer>, FlightSerializable> reducedFlightsData = reduceFlightsPair(flightsPair);
-        Map<Integer, String> airportsPair = makeAirportsPair(airportsFile).collectAsMap();
-        final Broadcast<Map<String, String>> airportsBroadcasted = sc.broadcast();
+        Map<Integer, String> stringAirportDataMap = makeAirportsPair(airportsFile).collectAsMap();
+        final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(stringAirportDataMap);
     }
 
 
