@@ -65,6 +65,6 @@ public class SparkMain {
     }
 
     private static JavaPairRDD<Tuple2<Integer, Integer>> reduceFlightsPair(JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair){
-        
+        return flightsPair.combineByKey(flight -> )
     }
 }
