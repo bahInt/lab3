@@ -30,7 +30,7 @@ public class SparkMain {
 
     }
 
-    
+
 
     private static JavaPairRDD<Integer, String> makeAirportsPair(JavaRDD<String> airportsFile) {
         return airportsFile.filter(line -> !line.contains(AIRPORT_DESCRIPTION_LINE)).mapToPair(line -> {
@@ -63,4 +63,6 @@ public class SparkMain {
                     new AirportSerializable(departureAirportID, destinationAirportID, delay, flightCancellation)
             );
     }
+
+    private static JavaPairRDD<Tuple2<Integer, Integer>>
 }
