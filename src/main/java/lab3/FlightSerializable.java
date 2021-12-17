@@ -69,10 +69,10 @@ public class FlightSerializable implements Serializable {
     }
 
     public static FlightSerializable add(FlightSerializable firstFlight, FlightSerializable secondFlight) {
-        float addedMaxDelayTime;
+        float addedMaxDelayTime = firstFlight.getMaxDelayTime() + secondFlight.getMaxDelayTime();
         float addedDelayedFlights;
         float addedCancelledFlights;
         int addedAmountOfFlights;
-        return new FlightSerializable(addedMaxDelayTime, addedDelayedFlights, addedCancelledFlights)
+        return new FlightSerializable(addedMaxDelayTime, addedDelayedFlights, addedCancelledFlights, addedAmountOfFlights);
     }
 }
