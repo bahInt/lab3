@@ -8,5 +8,5 @@ public class FlightSerializable implements Serializable {
     private float cancelledFlights;
     private int amountOfFlights;
 
-    public FlightSerializable(float maxDelayTime)
+    public FlightSerializable(float maxDelayTime, float delayedFlights, float cancelledFlights)
 }
