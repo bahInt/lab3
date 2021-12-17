@@ -12,6 +12,6 @@ public class FlightSerializable implements Serializable {
         this.maxDelayTime = maxDelayTime;
         this.delayedFlights = delayedFlights;
         this.cancelledFlights = cancelledFlights;
-        
+        this.amountOfFlights = amountOfFlights;
     }
 }
