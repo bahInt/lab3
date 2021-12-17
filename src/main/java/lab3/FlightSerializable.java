@@ -46,5 +46,8 @@ public class FlightSerializable implements Serializable {
     public int getAmountOfFlights() {
         return amountOfFlights;
     }
-    
+
+    public static FlightSerializable addValue(FlightSerializable flight, AirportSerializable ) {
+
+    }
 }
