@@ -94,7 +94,7 @@ public class SparkMain {
             int amountOfFlights = flight._2.getAmountOfFlights();
             float delayedAndCancelledPercentage = ((delayedFlights + cancelledFlights) / amountOfFlights) * 100;
 
-            
+            return ""
             }
         )
     }
