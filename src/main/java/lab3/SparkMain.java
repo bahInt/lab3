@@ -69,7 +69,7 @@ public class SparkMain {
                 new FlightsSerializable(
                         flight.getDelay(),
                         flight.checkDelay(),
-
+                        flight.checkCancellation()
                 ),
                 FlightSerializable::addValue,
                 FlightSerializable::add);
