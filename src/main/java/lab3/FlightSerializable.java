@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class FlightSerializable implements Serializable {
     private float maxDelayTime;
-    private float dela;
+    private float del;
     private float
 
     public FlightSerializable(float maxDelayTime)
