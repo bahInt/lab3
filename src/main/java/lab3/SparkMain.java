@@ -31,7 +31,7 @@ public class SparkMain {
         JavaPairRDD<Tuple2<Integer, Integer>, FlightSerializable> reducedFlightsData = reduceFlightsPair(flightsPair);
         Map<Integer, String> stringAirportDataMap = makeAirportsPair(airportsFile).collectAsMap();
         final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(stringAirportDataMap);
-        
+        JavaRDD<String> resultStatistics = mapStatistics();
     }
 
 
@@ -80,4 +80,6 @@ public class SparkMain {
                 FlightSerializable::add
         );
     }
+
+    private static JavaRDD<String> mapStatistics() {}
 }
