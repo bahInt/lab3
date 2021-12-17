@@ -16,6 +16,7 @@ public class SparkMain {
     private static final int DEST_AIRPORT_ID_COLUMN = 14;
     private static final int DELAY_COLUMN = 18;
     private static final int CANCELLED_COLUMN = 19;
+    private static final int FLIGHT_COUNTING = 1;
 
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("lab3");
@@ -66,10 +67,11 @@ public class SparkMain {
 
     private static JavaPairRDD<Tuple2<Integer, Integer>, FlightSerializable> reduceFlightsPair(JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair){
         return flightsPair.combineByKey(flight ->
-                new FlightsSerializable(
+                new FlightSerializable(
                         flight.getDelay(),
                         flight.checkDelay(),
-                        flight.checkCancellation()
+                        flight.checkCancellation(),
+                        FLIGHT_COUNTING
                 ),
                 FlightSerializable::addValue,
                 FlightSerializable::add);
