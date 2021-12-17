@@ -32,7 +32,7 @@ public class SparkMain {
         Map<Integer, String> stringAirportDataMap = makeAirportsPair(airportsFile).collectAsMap();
         final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(stringAirportDataMap);
         JavaRDD<String> resultStatistics = mapStatistics(reducedFlightsData, airportsBroadcasted);
-        resultStatistics.saveAsTextFile("");
+        resultStatistics.saveAsTextFile("hdfs://localhost:9000/user/igor/outputLab3");
     }
 
 
