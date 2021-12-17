@@ -48,7 +48,7 @@ public class AirportSerializable implements Serializable {
 
     public float checkCancellation(){
         float resultOfCheck;
-        if( flightCancellation == )
+        if( flightCancellation)
     }
     public void setFlightCancellation(boolean flightCancellation){
         this.flightCancellation = flightCancellation;
