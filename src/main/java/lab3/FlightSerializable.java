@@ -46,4 +46,5 @@ public class FlightSerializable implements Serializable {
     public int getAmountOfFlights() {
         return amountOfFlights;
     }
+    
 }
