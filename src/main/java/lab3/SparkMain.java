@@ -26,9 +26,11 @@ public class SparkMain {
 
         JavaPairRDD<Integer, String> airportsPair = makeAirportsPair(airportsFile);
         JavaPairRDD<Tuple2<Integer, Integer>, AirportSerializable> flightsPair = flightsFile.filter(line -> !line.contains(FLIGHTS_DESCRIPTION_LINE)).mapToPair(SparkMain::makeFlightsPair);
-        JavaPairRDD<Tuple2<Integer, Integer>> =
+        JavaPairRDD<Tuple2<Integer, Integer>> reducedFlightsData = reduceFlightsPair(flightsPair);
 
     }
+
+    
 
     private static JavaPairRDD<Integer, String> makeAirportsPair(JavaRDD<String> airportsFile) {
         return airportsFile.filter(line -> !line.contains(AIRPORT_DESCRIPTION_LINE)).mapToPair(line -> {
