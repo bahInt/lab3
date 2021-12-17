@@ -42,4 +42,8 @@ public class FlightSerializable implements Serializable {
     public void setAmountOfFlights(int amountOfFlights) {
         this.amountOfFlights = amountOfFlights;
     }
+
+    public int getAmountOfFlights() {
+        return amountOfFlights;
+    }
 }
