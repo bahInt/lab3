@@ -89,9 +89,10 @@ public class SparkMain {
             String departureAirport = departureDestinationAirports.get(key._1);
             String destinationAirport = departureDestinationAirports.get(key._2);
             float maxDelayTime = flight._2.getMaxDelayTime();
-            float delayedFlights;
-            float cancelledFlights;
-            int amountOfFlights;
+            float delayedFlights = flight._2.getDelayedFlights();
+            float cancelledFlights = flight._2.getCancelledFlights();
+            int amountOfFlights = flight._2.getAmountOfFlights();
+            
             }
         )
     }
