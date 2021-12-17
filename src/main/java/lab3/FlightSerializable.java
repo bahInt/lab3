@@ -50,6 +50,7 @@ public class FlightSerializable implements Serializable {
     public static FlightSerializable addValue(FlightSerializable flight, AirportSerializable valueFlight) {
         int amountOfFlights = flight.getAmountOfFlights() + 1;
         float flightDelay = Math.max(flight.getMaxDelayTime(), valueFlight.getDelay());
+
         float delayedFlights;
         if(valueFlight.getFlightCancellation() || valueFlight.getDelay() > 0) {
             delayedFlights = flight.getDelayedFlights() + 1;
@@ -59,7 +60,13 @@ public class FlightSerializable implements Serializable {
 
         float cancelledFlights;
         if(valueFlight.getFlightCancellation()) {
-            cancelledFlights = flight.getCancelledFlights() + 1
+            cancelledFlights = flight.getCancelledFlights() + 1;
+        } else {
+            cancelledFlights = flight.getCancelledFlights();
         }
+
+        return new FlightSerializable(flightDelay, delayedFlights, cancelledFlights, amountOfFlights);
     }
+
+    public static FlightSerializable add(FlightSerializable ){}
 }
