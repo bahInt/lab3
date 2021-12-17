@@ -74,6 +74,7 @@ public class SparkMain {
                         FLIGHT_COUNTING
                 ),
                 FlightSerializable::addValue,
-                FlightSerializable::add);
+                FlightSerializable::add
+        );
     }
 }
